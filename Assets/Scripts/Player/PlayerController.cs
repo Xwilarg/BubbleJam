@@ -1,4 +1,5 @@
 using BubbleJam.Bullet;
+using Sketch.VN;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,6 +30,8 @@ namespace BubbleJam.Player
 
         private void Update()
         {
+            if (VNManager.Instance.IsStoryOngoing) return;
+
             if (!DidStartMoving && _mov.magnitude > 0f)
             {
                 DidStartMoving = true;
@@ -61,6 +64,12 @@ namespace BubbleJam.Player
 
         public void OnAttack(InputAction.CallbackContext value)
         {
+            if (VNManager.Instance.IsStoryOngoing)
+            {
+                VNManager.Instance.DisplayNextDialogue();
+                return;
+            }
+
             if (value.phase == InputActionPhase.Started) _isAttacking = true;
             else if (value.phase == InputActionPhase.Canceled) _isAttacking = false;
         }

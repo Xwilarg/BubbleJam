@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6f174c9dee1cc4bb413ef2c907279a, type: 3}
+  m_Name: Bubble
+  m_EditorClassIdentifier: xwilarg.eu.zirk.sketch.visualnovel::Sketch.VN.VNCharacterInfo
+  Name: hero
+  DisplayName: Dark Water Knight
+  Image: {fileID: 21300000, guid: e924f7c47f2f8ac48906b5209e78193e, type: 3}
+  Overlays:
+  - ParentTag: emotion
+    OverlayContent:
+    - Tag: embarassed
+      Image: {fileID: 21300000, guid: 024518b2278c7194dbede8747ddcd6d5, type: 3}
+    - Tag: neutral
+      Image: {fileID: 21300000, guid: fa66f7438ee70444abfae63376486f35, type: 3}

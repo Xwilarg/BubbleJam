@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6f174c9dee1cc4bb413ef2c907279a, type: 3}
+  m_Name: Hero
+  m_EditorClassIdentifier: xwilarg.eu.zirk.sketch.visualnovel::Sketch.VN.VNCharacterInfo
+  Name: hero
+  DisplayName: Hero
+  Image: {fileID: 21300000, guid: 1e85b7a310e35b7429b8863046728461, type: 3}
+  Overlays:
+  - ParentTag: emotion
+    OverlayContent:
+    - Tag: neutral
+      Image: {fileID: 21300000, guid: f002c7735d987034abd47e321a6ffdd0, type: 3}
+    - Tag: angry
+      Image: {fileID: 21300000, guid: 39bda7e7f03a9c742873f640a0222a8f, type: 3}
