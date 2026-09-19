@@ -4,6 +4,7 @@ using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace BubbleJam.Player
 {
@@ -15,7 +16,27 @@ namespace BubbleJam.Player
         [SerializeField]
         private Transform _playerCenterTracking;
 
-        public bool DidStartMoving { set; get; }
+        [SerializeField]
+        private GameObject _gameUI;
+
+        [SerializeField]
+        private Image _healthBar;
+
+        private int _health = 3;
+
+        private bool _didStartMoving;
+        public bool DidStartMoving
+        {
+            set
+            {
+                if (!_didStartMoving && value)
+                {
+                    _gameUI.SetActive(true);
+                }
+                _didStartMoving = value;
+            }
+            get => _didStartMoving;
+        }
 
         private Rigidbody2D _rb;
 
@@ -38,12 +59,21 @@ namespace BubbleJam.Player
         private Skill _dashSkill;
         private bool _isDashing;
 
+        public void TakeDamage()
+        {
+            _health--;
+
+            _healthBar.transform.localScale = new(_health / 3f, 1f, 1f);
+        }
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
             _cam = Camera.main;
 
             _dashSkill = new(2f, this);
+
+            _gameUI.SetActive(false);
         }
 
         private IEnumerator DashCoroutine()
