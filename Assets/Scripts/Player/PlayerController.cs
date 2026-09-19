@@ -61,7 +61,6 @@ namespace BubbleJam.Player
         private bool _isDashing;
 
         private bool _isBeingThrown;
-        private float _thrownTimer;
 
         public void TakeDamage()
         {
@@ -145,6 +144,7 @@ namespace BubbleJam.Player
         {
             _isBeingThrown = true;
             _thrownDir = dir;
+            TakeDamage();
             StartCoroutine(ThrowCoroutine());
         }
 

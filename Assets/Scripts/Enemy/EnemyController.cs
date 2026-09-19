@@ -1,5 +1,6 @@
 using BubbleJam;
 using BubbleJam.Player;
+using Sketch.VN;
 using System;
 using UnityEngine;
 
@@ -63,7 +64,14 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.linearVelocity = _dir * Speed;
+        if (VNManager.Instance.IsStoryOngoing)
+        {
+            _rb.linearVelocity = Vector2.zero;
+        }
+        else
+        {
+            _rb.linearVelocity = _dir * Speed;
+        }
     }
 
     private void ShowAttack(Vector2 pos, float angle)
