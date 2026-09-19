@@ -16,9 +16,14 @@ namespace BubbleJam.Game
         [SerializeField]
         private bool _debug_skipStory;
 
+        [SerializeField]
+        private GameObject _gameUI;
+
         private void Awake()
         {
             Instance = this;
+
+            _gameUI.SetActive(false);
         }
 
         private bool OnTags(string name, string content)
@@ -35,9 +40,13 @@ namespace BubbleJam.Game
         private void Start()
         {
 #if UNITY_EDITOR
-            if (_debug_skipStory) return;
+            if (_debug_skipStory)
+            {
+                _gameUI.SetActive(true);
+                return;
+            }
 #endif
-            VNManager.Instance.ShowStory(new InkStory(_intro), onTags: OnTags);
+            VNManager.Instance.ShowStory(new InkStory(_intro), onDone: () => { _gameUI.SetActive(true); }, onTags: OnTags);
         }
     }
 }

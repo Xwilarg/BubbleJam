@@ -17,26 +17,11 @@ namespace BubbleJam.Player
         private Transform _playerCenterTracking;
 
         [SerializeField]
-        private GameObject _gameUI;
-
-        [SerializeField]
         private Image _healthBar;
 
         private int _health = 3;
 
-        private bool _didStartMoving;
-        public bool DidStartMoving
-        {
-            set
-            {
-                if (!_didStartMoving && value)
-                {
-                    _gameUI.SetActive(true);
-                }
-                _didStartMoving = value;
-            }
-            get => _didStartMoving;
-        }
+        public bool DidStartMoving { set; get; }
 
         private Rigidbody2D _rb;
 
@@ -75,8 +60,6 @@ namespace BubbleJam.Player
             _cam = Camera.main;
 
             _dashSkill = new(2f, this);
-
-            _gameUI.SetActive(false);
         }
 
         private IEnumerator DashCoroutine()

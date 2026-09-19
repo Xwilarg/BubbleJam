@@ -2,12 +2,20 @@ using BubbleJam;
 using BubbleJam.Player;
 using Sketch.VN;
 using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
     [SerializeField]
     private PlayerController _player;
+
+    [SerializeField]
+    private Image _ultimateProgression;
+
+    [SerializeField]
+    private TMP_Text _ultimateText;
 
     [SerializeField]
     private float Speed = 15f;
@@ -32,6 +40,8 @@ public class EnemyController : MonoBehaviour
     private Skill _slashSkill;
     private Skill _moveSkill;
 
+    private float _ultimate;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -39,6 +49,8 @@ public class EnemyController : MonoBehaviour
 
         _moveSkill = new(MoveDirtyDuration, this);
         _slashSkill = new(.5f, this);
+
+        UpdateUltimateUI();
     }
 
     private void Update()
@@ -72,6 +84,14 @@ public class EnemyController : MonoBehaviour
         {
             _rb.linearVelocity = _dir * Speed;
         }
+    }
+
+    private void UpdateUltimateUI()
+    {
+        var ultimateInt = Mathf.FloorToInt(_ultimate);
+
+        _ultimateText.text = $"{ultimateInt}%";
+        _ultimateProgression.fillAmount = _ultimate / 100f;
     }
 
     private void ShowAttack(Vector2 pos, float angle)
