@@ -18,12 +18,16 @@ namespace BubbleJam.Bullet
 
         private GameObject _bulletContainer;
 
+        private int _enemyLayer;
+
         private void Awake()
         {
             Instance = this;
 
             _data = new NativeList<BulletInfo>(Allocator.Persistent);
             _bulletContainer = new GameObject("Bullets");
+
+            _enemyLayer = LayerMask.GetMask("Enemy", "Attack");
         }
 
         public void Spawn(Vector2 pos, float angle, float speed, float lifetime, AttackShape shape)
@@ -46,8 +50,6 @@ namespace BubbleJam.Bullet
         {
             if (_data.Count == 0) return;
 
-            var enemyLayer = LayerMask.GetMask("Enemy");
-
             var job = new BulletJob()
             {
                 Bullets = _data.AsArray(),
@@ -66,7 +68,7 @@ namespace BubbleJam.Bullet
 
                 var pendingDestruction = data.Lifetime <= 0f;
 
-                var coll = Physics2D.OverlapCircle(newPos, _instances[i].transform.localScale.x / 2f, enemyLayer);
+                var coll = Physics2D.OverlapCircle(newPos, _instances[i].transform.localScale.x / 2f, _enemyLayer);
                 if (coll != null)
                 {
                     Destroy(_instances[i]);

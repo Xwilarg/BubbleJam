@@ -1205,6 +1205,7 @@ MonoBehaviour:
   Size: 0.5
   MoveDirtyDuration: 0.1
   EmergencySize: 1
+  _slashPrefab: {fileID: 7310164780121317116, guid: 414fed2cbbc61944292411ee32afa334, type: 3}
 --- !u!1 &1045526897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,6 +1915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BubbleJam.Game.GameManager
   _intro: {fileID: 6231892579173505729, guid: a66a46b469eed5140b4475e265029f1b, type: 3}
+  _debug_skipStory: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -1,8 +1,7 @@
+using BubbleJam;
 using BubbleJam.Player;
 using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngineInternal;
 
 public class EnemyController : MonoBehaviour
 {
@@ -20,44 +19,51 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private float EmergencySize = 1f;
 
+    [SerializeField]
+    private GameObject _slashPrefab;
+
     private Vector2 _dir;
 
     private Rigidbody2D _rb;
 
-    private bool _isMoveDirty = true;
-
-    private WaitForSeconds _coroutineWait;
-
     private int _bulletMask;
+
+    private Skill _slashSkill;
+    private Skill _moveSkill;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _coroutineWait = new WaitForSeconds(MoveDirtyDuration);
         _bulletMask = LayerMask.GetMask("Bullet");
+
+        _moveSkill = new(MoveDirtyDuration, this);
+        _slashSkill = new(.5f, this);
     }
 
     private void Update()
     {
-        if (_isMoveDirty && _player.DidStartMoving)
+        if (_moveSkill .CanUse && _player.DidStartMoving)
         {
             var a = GetBestAngle();
             _dir = new Vector2(Mathf.Cos(a), Mathf.Sin(a));
 
-            _isMoveDirty = false;
-            StartCoroutine(ChangeDir());
+            if (_slashSkill.CanUse)
+            {
+                var atckPos = (Vector2)transform.position + _dir;
+                if (Physics2D.OverlapCircle(atckPos, 1f, _bulletMask))
+                {
+                    Destroy(Instantiate(_slashPrefab, atckPos, Quaternion.Euler(0f, 0f, a * Mathf.Rad2Deg)), .5f);
+                    _slashSkill.Use();
+                }
+            }
+
+            _moveSkill.Use();
         }
     }
 
     private void FixedUpdate()
     {
         _rb.linearVelocity = _dir * Speed;
-    }
-
-    private IEnumerator ChangeDir()
-    {
-        yield return _coroutineWait;
-        _isMoveDirty = true;
     }
 
     private float GetBestAngle()
@@ -81,7 +87,7 @@ public class EnemyController : MonoBehaviour
             var scoreSafeFree = emergency == null ? 1f : 0f;
             var scorePlayer = 1f - Mathf.Abs(Mathf.DeltaAngle(finalAngle * Mathf.Rad2Deg, optimalDeg) / 180f);
 
-            var score = (scoreFree * 5f) + (scoreSafeFree * 5f) + scorePlayer;
+            var score = (scoreFree * 5f) + (scoreSafeFree * 5f) + (scorePlayer * ((_slashSkill?.CanUse ?? false) ? 20f : 1f));
             if (score > bestScore)
             {
                 bestAngle = finalAngle;
