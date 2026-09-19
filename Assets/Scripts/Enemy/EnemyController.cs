@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour
                 var atckPos = (Vector2)transform.position + _dir;
                 if (Physics2D.OverlapCircle(atckPos, 1f, _bulletMask))
                 {
-                    Destroy(Instantiate(_slashPrefab, atckPos, Quaternion.Euler(0f, 0f, a * Mathf.Rad2Deg)), .5f);
+                    ShowAttack(atckPos, a * Mathf.Rad2Deg - 90f);
                     _slashSkill.Use();
                 }
             }
@@ -64,6 +64,11 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         _rb.linearVelocity = _dir * Speed;
+    }
+
+    private void ShowAttack(Vector2 pos, float angle)
+    {
+        Destroy(Instantiate(_slashPrefab, pos, Quaternion.Euler(0f, 0f, angle)), .5f);
     }
 
     private float GetBestAngle()
@@ -96,6 +101,16 @@ public class EnemyController : MonoBehaviour
         }
 
         return bestAngle;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            var dir = (collision.transform.position - transform.position).normalized;
+            collision.GetComponent<PlayerController>().Throw(dir);
+            ShowAttack(collision.transform.position, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f);
+        }
     }
 
     private void OnDrawGizmos()

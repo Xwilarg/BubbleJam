@@ -43,6 +43,7 @@ namespace BubbleJam.Player
         private Vector2 _mov;
         private Vector2 _lastDir = Vector2.up;
         private Vector2 _dashDir;
+        private Vector2 _thrownDir;
 
         private const float Speed = 20f;
         private const float BulletSpeed = 8f;
@@ -58,6 +59,9 @@ namespace BubbleJam.Player
 
         private Skill _dashSkill;
         private bool _isDashing;
+
+        private bool _isBeingThrown;
+        private float _thrownTimer;
 
         public void TakeDamage()
         {
@@ -90,10 +94,19 @@ namespace BubbleJam.Player
             {
                 DidStartMoving = true;
             }
-            _rb.linearVelocity =
-                _isDashing
-                ? _mov * Speed * 2f
-                : _mov * Speed;
+
+            if (_isBeingThrown)
+            {
+                _rb.linearVelocity = _thrownDir * Speed * 3f;
+            }
+            else if (_isDashing)
+            {
+                _rb.linearVelocity = _dashDir * Speed * 2f;
+            }
+            else
+            {
+                _rb.linearVelocity = _mov * Speed;
+            }
 
             if (!_isCamCentered)
             {
@@ -126,6 +139,19 @@ namespace BubbleJam.Player
 
                 _reloadTimer = .1f;
             }
+        }
+
+        public void Throw(Vector2 dir)
+        {
+            _isBeingThrown = true;
+            _thrownDir = dir;
+            StartCoroutine(ThrowCoroutine());
+        }
+
+        private IEnumerator ThrowCoroutine()
+        {
+            yield return new WaitForSeconds(.75f);
+            _isBeingThrown = false;
         }
 
         public void OnMovement(InputAction.CallbackContext value)
