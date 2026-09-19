@@ -1,5 +1,6 @@
 using BubbleJam.Bullet;
 using Sketch.VN;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +8,25 @@ namespace BubbleJam.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        public bool DidStartMoving { private set; get; }
+        [SerializeField]
+        private CinemachineCamera _camera;
+
+        private bool _didStartMoving;
+        public bool DidStartMoving
+        {
+            set
+            {
+                if (value != _didStartMoving)
+                {
+                    _didStartMoving = value;
+                    if (value)
+                    {
+                        _camera.Follow = transform;
+                    }
+                }
+            }
+            get => _didStartMoving;
+        }
 
         private Rigidbody2D _rb;
 
