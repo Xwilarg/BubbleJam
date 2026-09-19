@@ -50,6 +50,8 @@ namespace BubbleJam.Player
 
         private bool _isBeingThrown;
 
+        private bool _isUsingSkill3;
+
         public void TakeDamage()
         {
             _health--;
@@ -119,8 +121,16 @@ namespace BubbleJam.Player
                 var mouse = (Vector2)(_cam.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position);
 
                 var angle = Mathf.Atan2(mouse.y, mouse.x);
-                BulletManager.Instance.Spawn(transform.position, angle, BulletSpeed, BulletLifespan, AttackShape.Straight);
-                //BulletManager.Instance.Spawn(transform.position, angle, BulletSpeed / 2f, BulletLifespan, AttackShape.Sin);
+                
+                if (_isUsingSkill3)
+                {
+                    BulletManager.Instance.Spawn(transform.position, angle, BulletSpeed, BulletLifespan, AttackShape.Sin);
+                    BulletManager.Instance.Spawn(transform.position, angle, BulletSpeed, BulletLifespan, AttackShape.Cos);
+                }
+                else
+                {
+                    BulletManager.Instance.Spawn(transform.position, angle, BulletSpeed, BulletLifespan, AttackShape.Straight);
+                }
 
                 _reloadTimer = .1f;
             }
@@ -169,6 +179,13 @@ namespace BubbleJam.Player
 
                 yield return wait;
             }
+        }
+
+        private IEnumerator PlaySkill3Wave()
+        {
+            _isUsingSkill3 = true;
+            yield return new WaitForSeconds(5f);
+            _isUsingSkill3 = false;
         }
 
         public void OnMovement(InputAction.CallbackContext value)
@@ -230,6 +247,7 @@ namespace BubbleJam.Player
         {
             if (!VNManager.Instance.IsStoryOngoing && value.phase == InputActionPhase.Started)
             {
+                StartCoroutine(PlaySkill3Wave());
 
                 DidStartMoving = true;
             }

@@ -13,8 +13,8 @@ namespace BubbleJam.Bullet
         public float DeltaTime;
 
 
-        const float Frequency = 10f;
-        const float Amplitude = 10f;
+        const float Frequency = 20f;
+        const float Amplitude = 20f;
 
         public void Execute(int index)
         {
