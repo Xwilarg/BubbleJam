@@ -1,5 +1,6 @@
 using BubbleJam.Bullet;
 using Sketch.VN;
+using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -11,40 +12,44 @@ namespace BubbleJam.Player
         [SerializeField]
         private CinemachineCamera _camera;
 
-        private bool _didStartMoving;
-        public bool DidStartMoving
-        {
-            set
-            {
-                if (value != _didStartMoving)
-                {
-                    _didStartMoving = value;
-                    if (value)
-                    {
-                        _camera.Follow = transform;
-                    }
-                }
-            }
-            get => _didStartMoving;
-        }
+        [SerializeField]
+        private Transform _playerCenterTracking;
+
+        public bool DidStartMoving { set; get; }
 
         private Rigidbody2D _rb;
 
         private Vector2 _mov;
+        private Vector2 _lastDir = Vector2.up;
+        private Vector2 _dashDir;
 
         private const float Speed = 20f;
         private const float BulletSpeed = 8f;
         private const float BulletLifespan = 10f;
+
+        private float _camTimer;
+        private bool _isCamCentered;
 
         private bool _isAttacking;
         private float _reloadTimer;
 
         private Camera _cam;
 
+        private Skill _dashSkill;
+        private bool _isDashing;
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody2D>();
             _cam = Camera.main;
+
+            _dashSkill = new(2f, this);
+        }
+
+        private IEnumerator DashCoroutine()
+        {
+            yield return new WaitForSeconds(.5f);
+            _isDashing = false;
         }
 
         private void Update()
@@ -55,7 +60,24 @@ namespace BubbleJam.Player
             {
                 DidStartMoving = true;
             }
-            _rb.linearVelocity = _mov * Speed;
+            _rb.linearVelocity =
+                _isDashing
+                ? _mov * Speed * 2f
+                : _mov * Speed;
+
+            if (!_isCamCentered)
+            {
+                _camTimer += Time.deltaTime;
+
+                if (_camTimer >= 1f)
+                {
+                    _camera.Follow = transform;
+                }
+                else
+                {
+                    _playerCenterTracking.position = Vector2.Lerp(Vector2.zero, transform.position, _camTimer);
+                }
+            }
 
             if (_reloadTimer > 0f)
             {
@@ -79,6 +101,11 @@ namespace BubbleJam.Player
         public void OnMovement(InputAction.CallbackContext value)
         {
             _mov = value.ReadValue<Vector2>();
+
+            if (_mov.magnitude > 0f)
+            {
+                _lastDir = _mov;
+            }
         }
 
         public void OnAttack(InputAction.CallbackContext value)
@@ -91,6 +118,17 @@ namespace BubbleJam.Player
 
             if (value.phase == InputActionPhase.Started) _isAttacking = true;
             else if (value.phase == InputActionPhase.Canceled) _isAttacking = false;
+        }
+
+        public void OnDash(InputAction.CallbackContext value)
+        {
+            if (!VNManager.Instance.IsStoryOngoing && _dashSkill.CanUse && value.phase == InputActionPhase.Started)
+            {
+                _dashSkill.Use();
+                _isDashing = true;
+                _dashDir = _lastDir;
+                StartCoroutine(DashCoroutine());
+            }
         }
     }
 }

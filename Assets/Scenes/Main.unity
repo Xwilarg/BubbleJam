@@ -1111,6 +1111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BubbleJam.Player.PlayerController
   _camera: {fileID: 338386026}
+  _playerCenterTracking: {fileID: 2125927134}
 --- !u!50 &640649213
 Rigidbody2D:
   serializedVersion: 5
@@ -1341,7 +1342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   _player: {fileID: 640649212}
-  Speed: 15
+  Speed: 25
   MaxDist: 10
   Size: 0.5
   MoveDirtyDuration: 0.1
@@ -1769,7 +1770,19 @@ MonoBehaviour:
     m_ActionId: b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba
     m_ActionName: 'Player/Next[/Keyboard/2]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 640649212}
+        m_TargetAssemblyTypeName: BubbleJam.Player.PlayerController, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 641cd816-40e6-41b4-8c3d-04687c349290
     m_ActionName: 'Player/Sprint[/Keyboard/leftShift]'
   - m_PersistentCalls:
@@ -2056,7 +2069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BubbleJam.Game.GameManager
   _intro: {fileID: 6231892579173505729, guid: a66a46b469eed5140b4475e265029f1b, type: 3}
-  _debug_skipStory: 0
+  _debug_skipStory: 1
 --- !u!1 &2125927133
 GameObject:
   m_ObjectHideFlags: 0
