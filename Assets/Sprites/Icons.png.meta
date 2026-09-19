@@ -1,25 +1,13 @@
 fileFormatVersion: 2
-guid: 39bda7e7f03a9c742873f640a0222a8f
+guid: a2aa890f57fefb540a32161fcb70b3d7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7448805772695979618
-    second: Hero_neutral_0
+      213: 1161201145128540330
+    second: Icons_0
   - first:
-      213: -1059512709463894708
-    second: Hero_neutral_1
-  - first:
-      213: 1019011771768617467
-    second: Hero_neutral_2
-  - first:
-      213: -8161914463991875354
-    second: Hero_neutral_3
-  - first:
-      213: -4276535649566563635
-    second: Hero_neutral_4
-  - first:
-      213: 2543127816565129756
-    second: Hero_neutral_5
+      213: 2130535880278150251
+    second: Icons_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -130,133 +118,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hero_neutral_0
+      name: Icons_0
       rect:
         serializedVersion: 2
-        x: 783
-        y: 3360
-        width: 128
-        height: 29
+        x: 623
+        y: 1270
+        width: 56
+        height: 111
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e99b39d7d9680a890800000000000000
-      internalID: -7448805772695979618
+      spriteID: aa8d9280a4a6d1010800000000000000
+      internalID: 1161201145128540330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_neutral_1
+      name: Icons_1
       rect:
         serializedVersion: 2
-        x: 1015
-        y: 3354
-        width: 138
-        height: 29
+        x: 724
+        y: 1271
+        width: 59
+        height: 107
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c459465edcadb41f0800000000000000
-      internalID: -1059512709463894708
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hero_neutral_2
-      rect:
-        serializedVersion: 2
-        x: 737
-        y: 3230
-        width: 196
-        height: 96
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf9b536bec1442e00800000000000000
-      internalID: 1019011771768617467
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hero_neutral_3
-      rect:
-        serializedVersion: 2
-        x: 992
-        y: 3224
-        width: 186
-        height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6e834a6e90e0bbe80800000000000000
-      internalID: -8161914463991875354
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hero_neutral_4
-      rect:
-        serializedVersion: 2
-        x: 964
-        y: 3128
-        width: 12
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dc26a4a1c71b6a4c0800000000000000
-      internalID: -4276535649566563635
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hero_neutral_5
-      rect:
-        serializedVersion: 2
-        x: 896
-        y: 3039
-        width: 123
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c1287cc66410b4320800000000000000
-      internalID: 2543127816565129756
+      spriteID: b6c0435581f219d10800000000000000
+      internalID: 2130535880278150251
       vertices: []
       indices: 
       edges: []
@@ -265,7 +165,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fedff023b9e632640a65bb80c8e062e9
     internalID: 0
     vertices: []
     indices: 
@@ -275,12 +175,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hero_neutral_0: -7448805772695979618
-      Hero_neutral_1: -1059512709463894708
-      Hero_neutral_2: 1019011771768617467
-      Hero_neutral_3: -8161914463991875354
-      Hero_neutral_4: -4276535649566563635
-      Hero_neutral_5: 2543127816565129756
+      Icons_0: 1161201145128540330
+      Icons_1: 2130535880278150251
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

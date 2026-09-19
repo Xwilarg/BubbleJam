@@ -80,5 +80,19 @@ namespace BubbleJam.Bullet
                 }
             }
         }
+        private void OnDrawGizmos()
+        {
+            if (!_data.IsCreated) return;
+
+            Gizmos.color = Color.red;
+            for (int i = _data.Count - 1; i >= 0; i--)
+            {
+                var data = _data[i];
+                var collData = _collData[i];
+
+                var newPos = new Vector2(data.Position.x, data.Position.y);
+                Gizmos.DrawWireSphere(newPos, _instances[i].transform.localScale.x / 2f);
+            }
+        }
     }
 }

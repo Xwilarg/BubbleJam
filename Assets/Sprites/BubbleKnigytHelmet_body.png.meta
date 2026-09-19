@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1e85b7a310e35b7429b8863046728461
+guid: b20ea00c824694847b4e82c3ef90f9a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 621947465662898750
-    second: Hero_body_0
+      213: -377785966453633272
+    second: BubbleKnigytHelmet_body_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hero_body_0
+      name: BubbleKnigytHelmet_body_0
       rect:
         serializedVersion: 2
-        x: 88
+        x: 79
         y: 0
-        width: 1768
-        height: 3769
+        width: 1856
+        height: 3982
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e32aacfbce991a800800000000000000
-      internalID: 621947465662898750
+      spriteID: 80f47644aa5d1caf0800000000000000
+      internalID: -377785966453633272
       vertices: []
       indices: 
       edges: []
@@ -140,7 +140,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -150,7 +150,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hero_body_0: 621947465662898750
+      BubbleKnigytHelmet_body_0: -377785966453633272
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

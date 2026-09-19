@@ -1,25 +1,28 @@
 fileFormatVersion: 2
-guid: fa66f7438ee70444abfae63376486f35
+guid: 024518b2278c7194dbede8747ddcd6d5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2796442922547100917
-    second: BubbleKnight_neutral_0
+      213: -5552490966435695310
+    second: BubbleKnight_embarassed_0
   - first:
-      213: -455722940087270175
-    second: BubbleKnight_neutral_1
+      213: -5276619368708509681
+    second: BubbleKnight_embarassed_1
   - first:
-      213: 6833570761164028108
-    second: BubbleKnight_neutral_2
+      213: -4968846083951622690
+    second: BubbleKnight_embarassed_2
   - first:
-      213: 3349000464613159660
-    second: BubbleKnight_neutral_3
+      213: -3353401123099647730
+    second: BubbleKnight_embarassed_3
   - first:
-      213: 8654509685677231763
-    second: BubbleKnight_neutral_4
+      213: 983435488259384349
+    second: BubbleKnight_embarassed_4
   - first:
-      213: 3706517262650064476
-    second: BubbleKnight_neutral_5
+      213: 6141545785219194657
+    second: BubbleKnight_embarassed_5
+  - first:
+      213: -1897223375568589368
+    second: BubbleKnight_embarassed_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +64,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -130,7 +133,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BubbleKnight_neutral_0
+      name: BubbleKnight_embarassed_0
       rect:
         serializedVersion: 2
         x: 681
@@ -145,14 +148,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5fc33199506fec620800000000000000
-      internalID: 2796442922547100917
+      spriteID: 235f80762e691f2b0800000000000000
+      internalID: -5552490966435695310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BubbleKnight_neutral_1
+      name: BubbleKnight_embarassed_1
       rect:
         serializedVersion: 2
         x: 1048
@@ -167,14 +170,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1e40a188662fca9f0800000000000000
-      internalID: -455722940087270175
+      spriteID: f00fe2114aea5c6b0800000000000000
+      internalID: -5276619368708509681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BubbleKnight_neutral_2
+      name: BubbleKnight_embarassed_2
       rect:
         serializedVersion: 2
         x: 723
@@ -189,14 +192,36 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cc87da6c668b5de50800000000000000
-      internalID: 6833570761164028108
+      spriteID: ed5097e00dc1b0bb0800000000000000
+      internalID: -4968846083951622690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BubbleKnight_neutral_3
+      name: BubbleKnight_embarassed_3
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 3271
+        width: 181
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e01ef3412735671d0800000000000000
+      internalID: -3353401123099647730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BubbleKnight_embarassed_4
       rect:
         serializedVersion: 2
         x: 1015
@@ -211,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ce2b2e5cd2a0a7e20800000000000000
-      internalID: 3349000464613159660
+      spriteID: d14a639bd5dd5ad00800000000000000
+      internalID: 983435488259384349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BubbleKnight_neutral_4
+      name: BubbleKnight_embarassed_5
       rect:
         serializedVersion: 2
         x: 1146
@@ -233,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39e08ff94befa1870800000000000000
-      internalID: 8654509685677231763
+      spriteID: 12f99c33a572b3550800000000000000
+      internalID: 6141545785219194657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BubbleKnight_neutral_5
+      name: BubbleKnight_embarassed_6
       rect:
         serializedVersion: 2
-        x: 942
-        y: 3136
-        width: 170
-        height: 13
+        x: 955
+        y: 3099
+        width: 131
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,8 +280,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5e3c1affc1307330800000000000000
-      internalID: 3706517262650064476
+      spriteID: 8cdaaaf4465bba5e0800000000000000
+      internalID: -1897223375568589368
       vertices: []
       indices: 
       edges: []
@@ -265,7 +290,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -275,12 +300,13 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BubbleKnight_neutral_0: 2796442922547100917
-      BubbleKnight_neutral_1: -455722940087270175
-      BubbleKnight_neutral_2: 6833570761164028108
-      BubbleKnight_neutral_3: 3349000464613159660
-      BubbleKnight_neutral_4: 8654509685677231763
-      BubbleKnight_neutral_5: 3706517262650064476
+      BubbleKnight_embarassed_0: -5552490966435695310
+      BubbleKnight_embarassed_1: -5276619368708509681
+      BubbleKnight_embarassed_2: -4968846083951622690
+      BubbleKnight_embarassed_3: -3353401123099647730
+      BubbleKnight_embarassed_4: 983435488259384349
+      BubbleKnight_embarassed_5: 6141545785219194657
+      BubbleKnight_embarassed_6: -1897223375568589368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

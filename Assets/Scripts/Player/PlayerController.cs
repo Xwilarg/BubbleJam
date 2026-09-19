@@ -6,11 +6,15 @@ namespace BubbleJam.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        public bool DidStartMoving { private set; get; }
+
         private Rigidbody2D _rb;
 
         private Vector2 _mov;
 
         private const float Speed = 20f;
+        private const float BulletSpeed = 8f;
+        private const float BulletLifespan = 10f;
 
         private bool _isAttacking;
         private float _reloadTimer;
@@ -25,6 +29,10 @@ namespace BubbleJam.Player
 
         private void Update()
         {
+            if (!DidStartMoving && _mov.magnitude > 0f)
+            {
+                DidStartMoving = true;
+            }
             _rb.linearVelocity = _mov * Speed;
 
             if (_reloadTimer > 0f)
@@ -34,11 +42,13 @@ namespace BubbleJam.Player
 
             if (_reloadTimer <= 0f && _isAttacking)
             {
+                DidStartMoving = true;
+
                 var mouse = (Vector2)(_cam.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - transform.position);
 
                 var angle = Mathf.Atan2(mouse.y, mouse.x);
-                BulletManager.Instance.Spawn(transform.position, angle, 20f, 10f, AttackShape.Straight);
-                //BulletManager.Instance.Spawn(transform.position, angle, 20f, 10f, AttackShape.Cos);
+                BulletManager.Instance.Spawn(transform.position, angle, BulletSpeed, BulletLifespan, AttackShape.Straight);
+                BulletManager.Instance.Spawn(transform.position, angle, BulletSpeed / 2f, BulletLifespan, AttackShape.Sin);
 
                 _reloadTimer = .1f;
             }

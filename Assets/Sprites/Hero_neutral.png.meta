@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: f002c7735d987034abd47e321a6ffdd0
+guid: 39bda7e7f03a9c742873f640a0222a8f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8561083120030263738
-    second: Hero_happy_0
+      213: -7448805772695979618
+    second: Hero_neutral_0
   - first:
-      213: 5526394300933433590
-    second: Hero_happy_1
+      213: -1059512709463894708
+    second: Hero_neutral_1
   - first:
-      213: -4811106392456777934
-    second: Hero_happy_2
+      213: 1019011771768617467
+    second: Hero_neutral_2
   - first:
-      213: -8837908258466168732
-    second: Hero_happy_3
+      213: -8161914463991875354
+    second: Hero_neutral_3
   - first:
-      213: 4682449115782303807
-    second: Hero_happy_4
+      213: -4276535649566563635
+    second: Hero_neutral_4
   - first:
-      213: 476221221670158726
-    second: Hero_happy_5
+      213: 2543127816565129756
+    second: Hero_neutral_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +61,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -130,13 +130,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hero_happy_0
+      name: Hero_neutral_0
       rect:
         serializedVersion: 2
-        x: 795
-        y: 3358
-        width: 134
-        height: 54
+        x: 783
+        y: 3360
+        width: 128
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 646d00ac24ce03980800000000000000
-      internalID: -8561083120030263738
+      spriteID: e99b39d7d9680a890800000000000000
+      internalID: -7448805772695979618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_happy_1
+      name: Hero_neutral_1
       rect:
         serializedVersion: 2
-        x: 996
-        y: 3348
-        width: 136
-        height: 50
+        x: 1015
+        y: 3354
+        width: 138
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -167,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f861eb2652b1bc40800000000000000
-      internalID: 5526394300933433590
+      spriteID: c459465edcadb41f0800000000000000
+      internalID: -1059512709463894708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_happy_2
+      name: Hero_neutral_2
       rect:
         serializedVersion: 2
         x: 737
-        y: 3231
+        y: 3230
         width: 196
-        height: 102
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,20 +189,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 23fa005f9348b3db0800000000000000
-      internalID: -4811106392456777934
+      spriteID: bf9b536bec1442e00800000000000000
+      internalID: 1019011771768617467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_happy_3
+      name: Hero_neutral_3
       rect:
         serializedVersion: 2
-        x: 989
+        x: 992
         y: 3224
-        width: 180
-        height: 94
+        width: 186
+        height: 87
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -211,14 +211,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 46002a0a341795580800000000000000
-      internalID: -8837908258466168732
+      spriteID: 6e834a6e90e0bbe80800000000000000
+      internalID: -8161914463991875354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_happy_4
+      name: Hero_neutral_4
       rect:
         serializedVersion: 2
         x: 964
@@ -233,20 +233,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f30db0189a66bf040800000000000000
-      internalID: 4682449115782303807
+      spriteID: dc26a4a1c71b6a4c0800000000000000
+      internalID: -4276535649566563635
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Hero_happy_5
+      name: Hero_neutral_5
       rect:
         serializedVersion: 2
-        x: 877
-        y: 3031
-        width: 141
-        height: 18
+        x: 896
+        y: 3039
+        width: 123
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,8 +255,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68107209da0eb9600800000000000000
-      internalID: 476221221670158726
+      spriteID: c1287cc66410b4320800000000000000
+      internalID: 2543127816565129756
       vertices: []
       indices: 
       edges: []
@@ -265,7 +265,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -275,12 +275,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hero_happy_0: -8561083120030263738
-      Hero_happy_1: 5526394300933433590
-      Hero_happy_2: -4811106392456777934
-      Hero_happy_3: -8837908258466168732
-      Hero_happy_4: 4682449115782303807
-      Hero_happy_5: 476221221670158726
+      Hero_neutral_0: -7448805772695979618
+      Hero_neutral_1: -1059512709463894708
+      Hero_neutral_2: 1019011771768617467
+      Hero_neutral_3: -8161914463991875354
+      Hero_neutral_4: -4276535649566563635
+      Hero_neutral_5: 2543127816565129756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
