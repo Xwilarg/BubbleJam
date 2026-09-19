@@ -66,7 +66,7 @@ namespace BubbleJam.Player
         {
             if (VNManager.Instance.IsStoryOngoing)
             {
-                VNManager.Instance.DisplayNextDialogue();
+                if (value.phase == InputActionPhase.Started) VNManager.Instance.DisplayNextDialogue();
                 return;
             }
 

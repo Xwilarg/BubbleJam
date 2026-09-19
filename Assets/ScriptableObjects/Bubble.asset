@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6f174c9dee1cc4bb413ef2c907279a, type: 3}
   m_Name: Bubble
   m_EditorClassIdentifier: xwilarg.eu.zirk.sketch.visualnovel::Sketch.VN.VNCharacterInfo
-  Name: hero
+  Name: bubble
   DisplayName: Dark Water Knight
   Image: {fileID: 21300000, guid: e924f7c47f2f8ac48906b5209e78193e, type: 3}
   Overlays:
