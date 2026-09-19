@@ -184,7 +184,7 @@ namespace BubbleJam.Player
         private IEnumerator PlaySkill3Wave()
         {
             _isUsingSkill3 = true;
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3f);
             _isUsingSkill3 = false;
         }
 
