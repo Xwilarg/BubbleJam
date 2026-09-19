@@ -1151,8 +1151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BubbleJam.Player.PlayerController
   _camera: {fileID: 338386026}
   _playerCenterTracking: {fileID: 2125927134}
-  _gameUI: {fileID: 1924387835}
   _healthBar: {fileID: 1384899150}
+  _enemy: {fileID: 1019430808}
 --- !u!50 &640649213
 Rigidbody2D:
   serializedVersion: 5
@@ -2429,6 +2429,54 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 640649212}
+        m_TargetAssemblyTypeName: BubbleJam.Player.PlayerController, Assembly-CSharp
+        m_MethodName: Skill1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9ffa8ab4-115b-41fb-bc66-6cec3be33982
+    m_ActionName: 'Player/Skill1[/Keyboard/1,/Keyboard/numpad1]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 640649212}
+        m_TargetAssemblyTypeName: BubbleJam.Player.PlayerController, Assembly-CSharp
+        m_MethodName: Skill2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c1051fee-14cb-42c5-a5d4-d5ab3d39f192
+    m_ActionName: 'Player/Skill2[/Keyboard/2,/Keyboard/numpad2]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 640649212}
+        m_TargetAssemblyTypeName: BubbleJam.Player.PlayerController, Assembly-CSharp
+        m_MethodName: Skill3
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ba979d31-a1f9-4d94-9a21-de6fb945f9cc
+    m_ActionName: 'Player/Skill3[/Keyboard/3,/Keyboard/numpad3]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -2824,6 +2872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BubbleJam.Game.GameManager
   _intro: {fileID: 6231892579173505729, guid: a66a46b469eed5140b4475e265029f1b, type: 3}
   _debug_skipStory: 1
+  _gameUI: {fileID: 1924387835}
 --- !u!1 &2125927133
 GameObject:
   m_ObjectHideFlags: 0

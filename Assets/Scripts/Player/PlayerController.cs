@@ -19,6 +19,9 @@ namespace BubbleJam.Player
         [SerializeField]
         private Image _healthBar;
 
+        [SerializeField]
+        private EnemyController _enemy;
+
         private int _health = 3;
 
         public bool DidStartMoving { set; get; }
@@ -117,7 +120,7 @@ namespace BubbleJam.Player
 
                 var angle = Mathf.Atan2(mouse.y, mouse.x);
                 BulletManager.Instance.Spawn(transform.position, angle, BulletSpeed, BulletLifespan, AttackShape.Straight);
-                BulletManager.Instance.Spawn(transform.position, angle, BulletSpeed / 2f, BulletLifespan, AttackShape.Sin);
+                //BulletManager.Instance.Spawn(transform.position, angle, BulletSpeed / 2f, BulletLifespan, AttackShape.Sin);
 
                 _reloadTimer = .1f;
             }
@@ -135,6 +138,37 @@ namespace BubbleJam.Player
         {
             yield return new WaitForSeconds(.75f);
             _isBeingThrown = false;
+        }
+
+        private IEnumerator PlaySkillAllDirections()
+        {
+            var wait = new WaitForSeconds(.1f);
+            for (float angle = 0f; angle < Mathf.PI * 2f; angle += Mathf.PI / 10f)
+            {
+                BulletManager.Instance.Spawn(transform.position, angle, 10f, 10f, AttackShape.Straight);
+                BulletManager.Instance.Spawn(transform.position, angle + Mathf.PI, 10f, 10f, AttackShape.Straight);
+                BulletManager.Instance.Spawn(transform.position, angle - Mathf.PI / 2f, 10f, 10f, AttackShape.Straight);
+                BulletManager.Instance.Spawn(transform.position, angle + Mathf.PI / 2f, 10f, 10f, AttackShape.Straight);
+
+                yield return wait;
+            }
+        }
+
+        private IEnumerator PlaySkillBlast()
+        {
+            var wait = new WaitForSeconds(.25f);
+            for (float i = 0f; i < 10; i++)
+            {
+                var dir = _enemy.transform.position - transform.position;
+                var angle = Mathf.Atan2(dir.y, dir.x);
+                BulletManager.Instance.Spawn(transform.position, angle, 10f, 10f, AttackShape.Straight);
+                BulletManager.Instance.Spawn(transform.position, angle - Mathf.PI / 4f, 10f, 10f, AttackShape.Straight);
+                BulletManager.Instance.Spawn(transform.position, angle + Mathf.PI / 4f, 10f, 10f, AttackShape.Straight);
+                BulletManager.Instance.Spawn(transform.position, angle - Mathf.PI / 2f, 10f, 10f, AttackShape.Straight);
+                BulletManager.Instance.Spawn(transform.position, angle + Mathf.PI / 2f, 10f, 10f, AttackShape.Straight);
+
+                yield return wait;
+            }
         }
 
         public void OnMovement(InputAction.CallbackContext value)
@@ -167,6 +201,37 @@ namespace BubbleJam.Player
                 _isDashing = true;
                 _dashDir = _lastDir;
                 StartCoroutine(DashCoroutine());
+
+                DidStartMoving = true;
+            }
+        }
+
+        public void Skill1(InputAction.CallbackContext value)
+        {
+            if (!VNManager.Instance.IsStoryOngoing && value.phase == InputActionPhase.Started )
+            {
+                StartCoroutine(PlaySkillAllDirections());
+
+                DidStartMoving = true;
+            }
+        }
+
+        public void Skill2(InputAction.CallbackContext value)
+        {
+            if (!VNManager.Instance.IsStoryOngoing && value.phase == InputActionPhase.Started)
+            {
+                StartCoroutine(PlaySkillBlast());
+
+                DidStartMoving = true;
+            }
+        }
+
+        public void Skill3(InputAction.CallbackContext value)
+        {
+            if (!VNManager.Instance.IsStoryOngoing && value.phase == InputActionPhase.Started)
+            {
+
+                DidStartMoving = true;
             }
         }
     }
