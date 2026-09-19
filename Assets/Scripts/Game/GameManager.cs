@@ -2,6 +2,7 @@
 using Sketch.VN;
 using Sketch.VN.InkleInk;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BubbleJam.Game
 {
@@ -20,12 +21,23 @@ namespace BubbleJam.Game
             Instance = this;
         }
 
+        private bool OnTags(string name, string content)
+        {
+            if (name == "end")
+            {
+                SceneManager.LoadScene("Menu");
+                return true;
+            }
+
+            return false;
+        }
+
         private void Start()
         {
 #if UNITY_EDITOR
             if (_debug_skipStory) return;
 #endif
-            VNManager.Instance.ShowStory(new InkStory(_intro));
+            VNManager.Instance.ShowStory(new InkStory(_intro), onTags: OnTags);
         }
     }
 }
