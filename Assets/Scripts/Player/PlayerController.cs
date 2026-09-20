@@ -1,3 +1,4 @@
+using BubbleJam.Audio;
 using BubbleJam.Bullet;
 using BubbleJam.Game;
 using Sketch.VN;
@@ -62,8 +63,9 @@ namespace BubbleJam.Player
         public void TakeDamage()
         {
             _health--;
-
             _healthBar.transform.localScale = new(_health / 3f, 1f, 1f);
+
+            SoundManager.Instance.PlaySlash();
 
             if (_health == 0)
             {

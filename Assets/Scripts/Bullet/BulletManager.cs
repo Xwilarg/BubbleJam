@@ -1,3 +1,4 @@
+using BubbleJam.Audio;
 using BubbleJam.Player;
 using System.Collections.Generic;
 using Unity.Collections;
@@ -21,6 +22,8 @@ namespace BubbleJam.Bullet
 
         private int _enemyLayer;
 
+        private bool _playSfx = true;
+
         private void Awake()
         {
             Instance = this;
@@ -33,6 +36,12 @@ namespace BubbleJam.Bullet
 
         public void Spawn(Vector2 pos, float angle, float speed, float lifetime, AttackShape shape)
         {
+            if (_playSfx)
+            {
+                SoundManager.Instance.PlayShoot();
+                _playSfx = false;
+            }
+
             _data.Add(new()
             {
                 Angle = angle,
@@ -49,6 +58,8 @@ namespace BubbleJam.Bullet
 
         private void Update()
         {
+            _playSfx = true;
+
             if (_data.Count == 0) return;
 
             var job = new BulletJob()

@@ -1,4 +1,5 @@
 using BubbleJam;
+using BubbleJam.Audio;
 using BubbleJam.Player;
 using Sketch.VN;
 using System;
@@ -60,7 +61,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (_player.DidStartMoving)
+        if (_player.DidStartMoving || VNManager.Instance.IsStoryOngoing)
         {
             _ultimate = Mathf.Clamp(_ultimate + Time.deltaTime / 50f, 0f, 1f);
             UpdateUltimateUI();
@@ -92,7 +93,7 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (VNManager.Instance.IsStoryOngoing)
+        if (VNManager.Instance.IsStoryOngoing || VNManager.Instance.IsStoryOngoing)
         {
             _rb.linearVelocity = Vector2.zero;
         }
