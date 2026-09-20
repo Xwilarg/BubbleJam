@@ -4,6 +4,7 @@ using BubbleJam.Game;
 using BubbleJam.Player;
 using Sketch.VN;
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -65,6 +66,12 @@ public class EnemyController : MonoBehaviour
         UpdateUltimateUI();
     }
 
+    private IEnumerator PlayEndingCoroutine()
+    {
+        yield return new WaitForSeconds(3.5f);
+        GameManager.Instance.PlayGoodEnding();
+    }
+
     private void Update()
     {
         if (_didGameEnd) return;
@@ -76,6 +83,7 @@ public class EnemyController : MonoBehaviour
             {
                 _didGameEnd = true;
                 _ultimateAnim.SetTrigger("Ultimate");
+                StartCoroutine(PlayEndingCoroutine());
             }
             UpdateUltimateUI();
 
