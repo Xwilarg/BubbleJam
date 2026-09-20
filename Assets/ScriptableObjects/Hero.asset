@@ -20,5 +20,5 @@ MonoBehaviour:
     OverlayContent:
     - Tag: neutral
       Image: {fileID: 21300000, guid: f002c7735d987034abd47e321a6ffdd0, type: 3}
-    - Tag: angry
+    - Tag: annoyed
       Image: {fileID: 21300000, guid: 39bda7e7f03a9c742873f640a0222a8f, type: 3}

@@ -1,6 +1,7 @@
 ﻿using Ink.UnityIntegration;
 using Sketch.VN;
 using Sketch.VN.InkleInk;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,11 +20,15 @@ namespace BubbleJam.Game
         [SerializeField]
         private GameObject _gameUI;
 
+        [SerializeField]
+        private GameObject _youAreHereHint;
+
         private void Awake()
         {
             Instance = this;
 
             _gameUI.SetActive(false);
+            _youAreHereHint.SetActive(false);
         }
 
         private bool OnTags(string name, string content)
@@ -31,6 +36,11 @@ namespace BubbleJam.Game
             if (name == "end")
             {
                 SceneManager.LoadScene("Menu");
+                return true;
+            }
+            if (name == "hint")
+            {
+                _youAreHereHint.SetActive(content == "show");
                 return true;
             }
 

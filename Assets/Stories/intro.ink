@@ -16,7 +16,7 @@ But before this, the player had the opportunity to ask one last question #speake
  -> SkipAll
 
 == Part2 ==
-No wait wait wait, I think you didn't understand which side you're on, you don't help the hero here #speaker narrator
+No wait wait wait, I think you didn't understand which side you're on, you don't help the hero here #speaker narrator #hint show
 So I get to ask a question? #speaker bubble #emotion neutral
 You do! So choose wisely #speaker narrator
 * [Why are you wearing such a light armor?]
@@ -51,7 +51,7 @@ Oh a charming lady owning a lovely house, our marriage is actually plan next wee
  -> Part3
 
 == Part3 ==
-Well that wasn't a great use of my time, anyway- #speaker narrator
+Well that wasn't a great use of my time, anyway- #speaker narrator #hint hide
 Waitwaitwait, I was thinking you could, you know, remind people on how my magic work and stuff #speaker bubble #emotion embarassed
 Ah, erm, sure, so the water knight is able to fend through the skies using WASD, shift to dash, and use her bubble magic, aiming with the left mouse, she could also use powerful spells with 1, 2 and 3 #speaker narrator
 As I said she have no chance against the hero but she would gain to survive a bit, let's say... 2 minutes? #speaker narrator

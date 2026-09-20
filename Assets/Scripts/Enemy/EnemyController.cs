@@ -55,8 +55,11 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (_moveSkill .CanUse && _player.DidStartMoving)
+        if (_moveSkill.CanUse && _player.DidStartMoving)
         {
+            _ultimate = Mathf.Clamp(_ultimate + Time.deltaTime, 0f, 1f);
+            UpdateUltimateUI();
+
             var a = GetBestAngle();
             _dir = new Vector2(Mathf.Cos(a), Mathf.Sin(a));
 
@@ -88,10 +91,10 @@ public class EnemyController : MonoBehaviour
 
     private void UpdateUltimateUI()
     {
-        var ultimateInt = Mathf.FloorToInt(_ultimate);
+        var ultimateInt = Mathf.FloorToInt(_ultimate * 100f);
 
         _ultimateText.text = $"{ultimateInt}%";
-        _ultimateProgression.fillAmount = _ultimate / 100f;
+        _ultimateProgression.fillAmount = _ultimate;
     }
 
     private void ShowAttack(Vector2 pos, float angle)
