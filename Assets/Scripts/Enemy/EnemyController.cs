@@ -78,7 +78,7 @@ public class EnemyController : MonoBehaviour
 
         if (_player.DidStartMoving || VNManager.Instance.IsStoryOngoing)
         {
-            _ultimate = Mathf.Clamp(_ultimate + Time.deltaTime / 5f, 0f, 1f);
+            _ultimate = Mathf.Clamp(_ultimate + Time.deltaTime / 50f, 0f, 1f);
             if (_ultimate == 1f)
             {
                 _didGameEnd = true;
