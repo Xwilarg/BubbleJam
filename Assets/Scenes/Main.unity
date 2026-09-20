@@ -3464,7 +3464,7 @@ MonoBehaviour:
   _intro: {fileID: 6231892579173505729, guid: a66a46b469eed5140b4475e265029f1b, type: 3}
   _badEnding: {fileID: 6231892579173505729, guid: f466bde7a94475347ac74fa9db39cf21, type: 3}
   _goodEnding: {fileID: 6231892579173505729, guid: 5c252117d6601dd458cc158fa8197688, type: 3}
-  _debug_skipStory: 1
+  _debug_skipStory: 0
   _gameUI: {fileID: 1924387835}
   _youAreHereHint: {fileID: 761560212}
 --- !u!1 &2044580401
