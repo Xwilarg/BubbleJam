@@ -1,5 +1,6 @@
 using BubbleJam;
 using BubbleJam.Audio;
+using BubbleJam.Game;
 using BubbleJam.Player;
 using Sketch.VN;
 using System;
@@ -32,6 +33,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private GameObject _slashPrefab;
 
+    [SerializeField]
+    private Animator _ultimateAnim;
+
     private float _currSpeed = 15f;
 
     private Vector2 _dir;
@@ -48,6 +52,8 @@ public class EnemyController : MonoBehaviour
     private Vector2 _thrownDir;
     private float _throwTimer;
 
+    private bool _didGameEnd;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -61,9 +67,16 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (_didGameEnd) return;
+
         if (_player.DidStartMoving || VNManager.Instance.IsStoryOngoing)
         {
-            _ultimate = Mathf.Clamp(_ultimate + Time.deltaTime / 50f, 0f, 1f);
+            _ultimate = Mathf.Clamp(_ultimate + Time.deltaTime / 5f, 0f, 1f);
+            if (_ultimate == 1f)
+            {
+                _didGameEnd = true;
+                _ultimateAnim.SetTrigger("Ultimate");
+            }
             UpdateUltimateUI();
 
             _currSpeed = Mathf.Clamp(_currSpeed + Time.deltaTime / 2f, _currSpeed, Speed);
@@ -93,7 +106,7 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (VNManager.Instance.IsStoryOngoing || VNManager.Instance.IsStoryOngoing)
+        if (VNManager.Instance.IsStoryOngoing || !_player.DidStartMoving || _didGameEnd)
         {
             _rb.linearVelocity = Vector2.zero;
         }
@@ -160,7 +173,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !_didGameEnd)
         {
             var dir = (collision.transform.position - transform.position).normalized;
             collision.GetComponent<PlayerController>().Throw(dir);

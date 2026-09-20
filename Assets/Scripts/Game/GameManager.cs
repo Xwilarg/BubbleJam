@@ -14,7 +14,7 @@ namespace BubbleJam.Game
         private static bool _skipIntro;
 
         [SerializeField]
-        private InkFile _intro, _badEnding;
+        private InkFile _intro, _badEnding, _goodEnding;
 
         [SerializeField]
         private bool _debug_skipStory;
@@ -70,6 +70,11 @@ namespace BubbleJam.Game
         public void PlayBadEnding()
         {
             VNManager.Instance.ShowStory(new InkStory(_badEnding), onTags: OnTags);
+        }
+
+        public void PlayGoodEnding()
+        {
+            VNManager.Instance.ShowStory(new InkStory(_goodEnding), onTags: OnTags);
         }
     }
 }

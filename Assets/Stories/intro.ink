@@ -63,6 +63,5 @@ After the water general gave up, the hero did a quick work of the others houses 
 His marriage indeed happened a few months later, the water general was indeed seen there, legends says that she ate an unholy amount of macarons
 Once peace reestablished, she however struggled to find another job, the 5 years at "General of the Demon Lord" definitly not helping on her resume
 She ended up working as an aide-de-camp for the hero, it sure was a peaceful life since there is no way I would let such a great friend be harmed
-Ending 3: Marriage #speaker none
 ... #end marriage
 -> END
