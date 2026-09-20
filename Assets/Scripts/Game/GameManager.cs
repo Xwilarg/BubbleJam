@@ -58,12 +58,18 @@ namespace BubbleJam.Game
         private void Start()
         {
 #if UNITY_EDITOR
-            if (_debug_skipStory || _skipIntro)
+            if (_debug_skipStory)
             {
                 _gameUI.SetActive(true);
                 return;
             }
 #endif
+            if (_skipIntro)
+            {
+                _gameUI.SetActive(true);
+                return;
+            }
+
             VNManager.Instance.ShowStory(new InkStory(_intro), onDone: () => { _gameUI.SetActive(true); }, onTags: OnTags);
         }
 

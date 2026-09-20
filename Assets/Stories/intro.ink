@@ -54,8 +54,8 @@ Oh a charming lady owning a lovely house, our marriage is actually plan next wee
 Well that wasn't a great use of my time, anyway- #speaker narrator #hint hide
 Waitwaitwait, I was thinking you could, you know, remind people on how my magic work and stuff #speaker bubble #emotion embarassed
 Ah, erm, sure, so the water general is able to fend through the skies using WASD, shift to dash, and use her bubble magic, aiming with the left mouse, she could also use powerful spells with 1, 2 and 3 #speaker narrator
-As I said she have no chance against the hero but she would gain to survive a bit, let's say... 2 minutes? #speaker narrator
-The not-so-secret weapon of the hero is his ultimate, that slowly charge over time, if he hit me he will gain a lot, but if I hit him, I'll slow him down a bit #speaker bubble #emotion neutral
+As I said she have no chance against the hero but she would gain to survive a bit #speaker narrator
+The not-so-secret weapon of the hero is his ultimate, if I survive until then I might be able to attempt something #speaker bubble #emotion neutral
 -> END
 
 == Marriage ==

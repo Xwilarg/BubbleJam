@@ -93,7 +93,7 @@ namespace BubbleJam.Player
 
         private void Update()
         {
-            _skillDebug.text = $"Skill 1: {(_skill1.CanUse ? "Ready" : "Reloading...")}\nSkill 2: {(_skill2.CanUse ? "Ready" : "Reloading...")}\nSkill 3: {(_skill3.CanUse ? "Ready" : "Reloading...")}";
+            _skillDebug.text = $"Dash: {(_dashSkill.CanUse ? "<color=#4a4acf>Ready</color>" : "Reloading...")}\nSkill 1: {(_skill1.CanUse ? "<color=#4a4acf>Ready</color>" : "Reloading...")}\nSkill 2: {(_skill2.CanUse ? "<color=#4a4acf>Ready</color>" : "Reloading...")}\nSkill 3: {(_skill3.CanUse ? "<color=#4a4acf>Ready</color>" : "Reloading...")}";
 
             if (VNManager.Instance.IsStoryOngoing) return;
 
