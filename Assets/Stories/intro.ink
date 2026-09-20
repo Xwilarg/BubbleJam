@@ -1,10 +1,10 @@
 After vanquishing the generals of fire and darkness, the hero arrived in the house of water #speaker narrator
-Reaching this point hadn't been an easy task, but thanks to the blessing of the goddess of light, the hero hadn't been in real harm way #speaker narrator
+Reaching this point hadn't been an easy task, but thanks to the blessing of the goddess of light, the hero hadn't been in harm's way #speaker narrator
 The general of water is said to be one of the weakest, going through shouldn't be much of a problem, especially thanks to- #speaker hero #emotion neutral
 Hero, here you are! You may have won against my friend but don't think it'll be all this easy here, as I have mastered the magic of bubbles! #speaker bubble #emotion neutral
 The general was boasting, an evil smile on her face, little did she know that she standed no chance against the hero #speaker narrator
 I-... What? #speaker bubble #emotion neutral
-Anyway general, your reign of terror end here! #speaker hero #emotion neutral
+Anyway general, your reign of terror ends here! #speaker hero #emotion neutral
 But before this, the player had the opportunity to ask one last question #speaker narrator
 * [Why did you side with the dark lord?]
  -> Part2
