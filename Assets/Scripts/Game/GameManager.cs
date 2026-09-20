@@ -11,8 +11,10 @@ namespace BubbleJam.Game
     {
         public static GameManager Instance { private set; get; }
 
+        private static bool _skipIntro;
+
         [SerializeField]
-        private InkFile _intro;
+        private InkFile _intro, _badEnding;
 
         [SerializeField]
         private bool _debug_skipStory;
@@ -43,6 +45,12 @@ namespace BubbleJam.Game
                 _youAreHereHint.SetActive(content == "show");
                 return true;
             }
+            if (name == "retry")
+            {
+                _skipIntro = content == "skip";
+                SceneManager.LoadScene("Main");
+                return true;
+            }
 
             return false;
         }
@@ -50,13 +58,18 @@ namespace BubbleJam.Game
         private void Start()
         {
 #if UNITY_EDITOR
-            if (_debug_skipStory)
+            if (_debug_skipStory || _skipIntro)
             {
                 _gameUI.SetActive(true);
                 return;
             }
 #endif
             VNManager.Instance.ShowStory(new InkStory(_intro), onDone: () => { _gameUI.SetActive(true); }, onTags: OnTags);
+        }
+
+        public void PlayBadEnding()
+        {
+            VNManager.Instance.ShowStory(new InkStory(_badEnding), onTags: OnTags);
         }
     }
 }

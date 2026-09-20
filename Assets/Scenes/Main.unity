@@ -1982,7 +1982,7 @@ MonoBehaviour:
   _player: {fileID: 640649212}
   _ultimateProgression: {fileID: 1609042464}
   _ultimateText: {fileID: 1339984671}
-  Speed: 25
+  Speed: 30
   MaxDist: 10
   Size: 0.5
   MoveDirtyDuration: 0.1
@@ -3195,7 +3195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BubbleJam.Game.GameManager
   _intro: {fileID: 6231892579173505729, guid: a66a46b469eed5140b4475e265029f1b, type: 3}
-  _debug_skipStory: 0
+  _badEnding: {fileID: 6231892579173505729, guid: f466bde7a94475347ac74fa9db39cf21, type: 3}
+  _debug_skipStory: 1
   _gameUI: {fileID: 1924387835}
   _youAreHereHint: {fileID: 761560212}
 --- !u!1 &2125927133

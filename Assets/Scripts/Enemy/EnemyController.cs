@@ -31,6 +31,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private GameObject _slashPrefab;
 
+    private float _currSpeed = 15f;
+
     private Vector2 _dir;
 
     private Rigidbody2D _rb;
@@ -57,8 +59,11 @@ public class EnemyController : MonoBehaviour
     {
         if (_moveSkill.CanUse && _player.DidStartMoving)
         {
-            _ultimate = Mathf.Clamp(_ultimate + Time.deltaTime, 0f, 1f);
+            _ultimate = Mathf.Clamp(_ultimate + Time.deltaTime / 10f, 0f, 1f);
             UpdateUltimateUI();
+
+            _currSpeed = Mathf.Clamp(_currSpeed + Time.deltaTime * 10f, _currSpeed, Speed);
+            Debug.Log(_currSpeed);
 
             var a = GetBestAngle();
             _dir = new Vector2(Mathf.Cos(a), Mathf.Sin(a));
@@ -85,7 +90,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            _rb.linearVelocity = _dir * Speed;
+            _rb.linearVelocity = _dir * _currSpeed;
         }
     }
 

@@ -1,4 +1,5 @@
 using BubbleJam.Bullet;
+using BubbleJam.Game;
 using Sketch.VN;
 using System.Collections;
 using TMPro;
@@ -63,6 +64,11 @@ namespace BubbleJam.Player
             _health--;
 
             _healthBar.transform.localScale = new(_health / 3f, 1f, 1f);
+
+            if (_health == 0)
+            {
+                GameManager.Instance.PlayBadEnding();
+            }
         }
 
         private void Awake()
