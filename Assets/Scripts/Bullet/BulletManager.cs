@@ -1,3 +1,4 @@
+using BubbleJam.Player;
 using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Jobs;
@@ -75,6 +76,11 @@ namespace BubbleJam.Bullet
                     _data.RemoveAt(i);
                     _instances.RemoveAt(i);
                     _collData.RemoveAt(i);
+
+                    if (coll.TryGetComponent<EnemyController>(out var ec))
+                    {
+                        ec.HitBullet(newPos);
+                    }
                 }
                 else
                 {

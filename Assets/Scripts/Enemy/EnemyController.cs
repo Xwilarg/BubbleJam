@@ -44,6 +44,9 @@ public class EnemyController : MonoBehaviour
 
     private float _ultimate;
 
+    private Vector2 _thrownDir;
+    private float _throwTimer;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -57,28 +60,33 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (_moveSkill.CanUse && _player.DidStartMoving)
+        if (_player.DidStartMoving)
         {
-            _ultimate = Mathf.Clamp(_ultimate + Time.deltaTime / 10f, 0f, 1f);
+            _ultimate = Mathf.Clamp(_ultimate + Time.deltaTime / 50f, 0f, 1f);
             UpdateUltimateUI();
 
-            _currSpeed = Mathf.Clamp(_currSpeed + Time.deltaTime * 10f, _currSpeed, Speed);
-            Debug.Log(_currSpeed);
+            _currSpeed = Mathf.Clamp(_currSpeed + Time.deltaTime / 2f, _currSpeed, Speed);
 
-            var a = GetBestAngle();
-            _dir = new Vector2(Mathf.Cos(a), Mathf.Sin(a));
+            if (_throwTimer > 0f) _throwTimer -= Time.deltaTime;
 
-            if (_slashSkill.CanUse)
+            if (_moveSkill.CanUse)
             {
-                var atckPos = (Vector2)transform.position + _dir;
-                if (Physics2D.OverlapCircle(atckPos, 1f, _bulletMask))
-                {
-                    ShowAttack(atckPos, a * Mathf.Rad2Deg - 90f);
-                    _slashSkill.Use();
-                }
-            }
+                var a = GetBestAngle();
 
-            _moveSkill.Use();
+                if (_slashSkill.CanUse)
+                {
+                    var atckPos = (Vector2)transform.position + _dir;
+                    if (Physics2D.OverlapCircle(atckPos, 1f, _bulletMask))
+                    {
+                        ShowAttack(atckPos, a * Mathf.Rad2Deg - 90f);
+                        _slashSkill.Use();
+                    }
+                }
+
+                _dir = new Vector2(Mathf.Cos(a), Mathf.Sin(a));
+
+                _moveSkill.Use();
+            }
         }
     }
 
@@ -88,10 +96,20 @@ public class EnemyController : MonoBehaviour
         {
             _rb.linearVelocity = Vector2.zero;
         }
+        else if (_throwTimer > 0f)
+        {
+            _rb.linearVelocity = _thrownDir * _currSpeed * 2f;
+        }
         else
         {
             _rb.linearVelocity = _dir * _currSpeed;
         }
+    }
+
+    public void HitBullet(Vector3 bulletPos)
+    {
+        _throwTimer = .1f;
+        _thrownDir = Vector2.Perpendicular((transform.position - bulletPos).normalized);
     }
 
     private void UpdateUltimateUI()
